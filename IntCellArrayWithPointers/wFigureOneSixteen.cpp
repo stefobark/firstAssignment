@@ -58,7 +58,7 @@ int f( )
     }
     
     // it makes sense that c[0] would change with a[0]'s change-- its a pointer.
-  	 cout << "\nthird vector\n";
+  	 cout << "\nthird array\n";
   	 for(int i = 0; i < 3; i++){
   	  	 cout << c[i]->read( ) << endl;
   	 }

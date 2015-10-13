@@ -6,7 +6,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include "IntCell.cpp" 
+#include "../TestIntCell/IntCell.cpp" 
 
 using namespace std;
 
