@@ -34,31 +34,32 @@ void IntCell::write( const int x )
 }
 
 /**
- * Add two IntCells, return a constant reference to their sum
-  */
+ * Add two IntCells, return the sum
+ * get two constant references to two different IntCells and return a reference
+ */
   
-int & IntCell::addTwo(const IntCell & a, const IntCell & b ) const
+int IntCell::addTwo(const IntCell & a, const IntCell & b ) const
 {
 	 int x = a.read() + b.read();
 	 
-	 return  x;
+	 return x;
 }
 
 /**
  * Subtract two IntCells, return whats left
- * accept constant reference and return by constant reference to avoid copying
-  */
+ * passing constant reference and returning reference
+ */
   
-int & IntCell::subTwo( const IntCell & a, const IntCell & b ) const
+int IntCell::subTwo( const IntCell & a, const IntCell & b ) const
 {
 	 int x = a.read() - b.read();
 	 
-	 return  x;
+	 return x;
 }
 
 /**
- * add another intcell to this one's stored value, return the sum
-*/
+ * add another intcell's storedValue to this one's storedValue, return the sum
+ */
   
 int IntCell::add( const IntCell & a)
 {

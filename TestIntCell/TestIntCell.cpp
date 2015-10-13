@@ -25,7 +25,7 @@ int main( )
 	 
 	 std::vector<int> nums {1,2,3,4,5,6};
 	 cout << "I'm trying out passing by constant reference (in all the add and sub functions)." << endl;
-	 cout << "\n" << "int & addTwo( const IntCell & a, const IntCell & b ) const;\n";
+	 cout << "\n" << "int addTwo( const IntCell & a, const IntCell & b ) const;\n";
 	 cout << "\ta.add(a,b)" << endl;
 	 cout << "\n\tThis takes any two IntCells, uses 'read()' to get their\n";
 	 cout << "\tstoredValue and returns the (int) sum of the two stored values\n" << endl;
@@ -33,7 +33,7 @@ int main( )
     cout << "\t" << "b = " << j << endl;
     cout << "\t" << i << " + " << j << " = " << a.addTwo(a,b) << "\n\n";
     
-    cout << "\n" << "int & subTwo( const IntCell & a, const IntCell & b ) const;" << endl;
+    cout << "\n" << "int subTwo( const IntCell & a, const IntCell & b ) const;" << endl;
     cout << "\n\tThis takes any two IntCells, uses 'read()' to get their";
     cout << "\n\tstoredValue and returns what is left after\n\t subtracting one of the storedValues\n" << endl;
     cout << "\n\t" << "a = " << i << endl;

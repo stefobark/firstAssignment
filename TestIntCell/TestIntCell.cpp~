@@ -64,7 +64,7 @@ int main( )
     	cout << i << " + ";
     }
     
-    cout << a.read() << " (this last number is the current storedValue of this IntCell)";
+    cout << "storedValue: {{" << a.read() << "}}";
     
     cout << " = " << a.add(nums) << "\n\n";
     
