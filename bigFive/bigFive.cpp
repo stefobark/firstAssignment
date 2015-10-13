@@ -1,35 +1,58 @@
-
 #include <iostream>
-#include<cstdio>
 #include<vector>
 using namespace std;
 
-/*
-part 4 of the six simple exercises
-*/
-
 /**
- * Figure 1.16
- */
+ * Figure 1.18: Implements the big five.
+ * Now, (unlike with figure 1.16) when we copy the first vector 
+ * and modify one of it (or the original), the other will not 
+ * be changed -- they're independent.
+*/
+ 
 class IntCell
 {
   public:
     explicit IntCell( int initialValue = 0 )
       { storedValue = new int{ initialValue }; }
+    
+    ~IntCell( )
+      { delete storedValue; }
 
+    IntCell( const IntCell & rhs )
+      { storedValue = new int{ *rhs.storedValue }; }
+
+    IntCell( IntCell && rhs ) : storedValue{ rhs.storedValue }
+      { rhs.storedValue = nullptr; }
+    
+    IntCell & operator= ( const IntCell & rhs )
+    {
+        if( this != & rhs )
+            *storedValue = *rhs.storedValue; 
+        return *this;
+    }
+    
+    IntCell & operator= ( IntCell && rhs )
+    {
+        std::swap( storedValue, rhs.storedValue );
+        return *this;
+    }
     int read( ) const
       { return *storedValue; }
     void write( int x )
       { *storedValue = x; }
+     
+    //overloading the << to print IntCells
+	 friend ostream& operator<<(ostream& os, const IntCell& intCell)
+		{
+			 os << intCell.read();
+			 return os;
+		}
     
   private:
     int *storedValue;
 };
 
 
-/*
- * Figure 1.17... with modifications.
- */
 int f( )
 {
 	 IntCell x {1};
@@ -44,7 +67,7 @@ int f( )
     
     cout << "first vector\n";
     for(int i = 0; i < 3; i++){
-    	 cout << a[i].read( ) << endl;
+    	 cout << a[i] << endl;
  	 }
  	 
  	 cout << "\nsecond vector\n";
@@ -74,4 +97,3 @@ int main( )
     
     return 0;
 }
-

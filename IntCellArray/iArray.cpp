@@ -70,7 +70,7 @@ void checkPrint(vector<IntCell> original){
 	}
 	
 void printTime(clock_t t, vector<IntCell> iCell){
-	printf ("It took me %d clicks (%f seconds) to do copyA.\n",t,((float)t)/CLOCKS_PER_SEC);
+	printf ("It took me %d clicks (%f seconds) to copy.\n",t,((float)t)/CLOCKS_PER_SEC);
 	printA(iCell);
 	printB(iCell);
 }
@@ -138,9 +138,10 @@ int main(){
 	newICell4->clear();
 	checkPrint(iCell);
 	
-	cout << "\n\n\tThe original was cleared. I think this demonstrates the problem with shallow copies.\n";
-	cout << "Seems that the other methods create a new space to hold the same values, while this default '=' points to the\n";
-	cout << "same address as the thing it is copying (because newICell is a pointer).\n\n";
+	cout << "\n\nThe original was cleared. I think this demonstrates the problem with shallow copies.\n";
+	cout << "Seems that the other methods create a new space \n";
+	cout << "to hold the same values, while this default '=' points to the\n";
+	cout << "same address as the thing it is copying (because newICell4 is a pointer).\n\n";
 	
 
 	
