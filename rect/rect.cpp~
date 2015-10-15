@@ -59,7 +59,7 @@ int main(){
 	
 	cout << "\nnew rectX = " << rectOne.getWidth() << endl;
 	cout << "new rectY = " << rectOne.getLength() << endl;
-	cout << "\nnow checking area ( '<' and '>' default to area comparison): " << endl;
+	cout << "\nnow checking area ( '<' and '>' which default to area comparison): " << endl;
 	cout << "\n\trectTwo < rectOne" << endl;
 	if(rectTwo < rectOne){
 		cout << "\nrectTwo (area: " << rectTwo.getArea() << ") is less (area) than rectOne (area: " << rectOne.getArea() << ")\n" << endl;

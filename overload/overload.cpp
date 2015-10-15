@@ -1,3 +1,18 @@
+/*
+	Steve Barker
+	Six Simple C++ Exercises: part 7
+	An example of overloading comparison operators for MemoryCells.
+	
+	Output of program looks like this:
+	stefo@ubuntu:~/CppStuff/firstAssignment/overload$ ./overload
+	m1 (1) < m2 (2)
+	m1 (9) > m2 (3)
+	m3 (Dog) < m4 (Zebra)
+	m3 (Dog) != m4 (Zebra)
+	changed m3 to Zebra
+	m3 (Zebra) == m4 (Zebra)
+*/
+
 #include <iostream>
 #include <string>
 #include <ctype.h>
@@ -71,17 +86,20 @@ int main( )
 
     m1.write( 1 );
     m2.write( 2 );
-    if(m1 < m2) cout << "m1 ("<< m1 << ") < m2 (" << m2 << ") !!" << endl;
+    if(m1 < m2) cout << "m1 ("<< m1 << ") < m2 (" << m2 << ")" << endl;
     
     m1.write( 9 );
     m2.write( 3 );
     
-    if(m1 > m2) cout << "m1 ("<< m1 << ") > m2 (" << m2 << ") !!" << endl;
+    if(m1 > m2) cout << "m1 ("<< m1 << ") > m2 (" << m2 << ")" << endl;
 
 	 m3.write( "Dog" );
 	 m4.write( "Zebra" );
-	 if(m3 < m4) cout << "m1 ("<< m3 << ") < m2 (" << m4 << ") !!" << endl;
-	 else if(m3 > m4) cout << "m1 ("<< m3 << ") > m2 (" << m4 << ") !!" << endl;
-	 
+	 if(m3 < m4) cout << "m3 ("<< m3 << ") < m4 (" << m4 << ")" << endl;
+	 if(m3 > m4) cout << "m3 ("<< m3 << ") > m4 (" << m4 << ")" << endl;
+	 if(m3 != m4) cout << "m3 ("<< m3 << ") != m4 (" << m4 << ")" << endl;
+	 cout << "changed m3 to Zebra" << endl;
+	 m3.write("Zebra");
+	 if(m3 == m4) cout << "m3 ("<< m3 << ") == m4 (" << m4 << ")" << endl;
     return 0;
 }
