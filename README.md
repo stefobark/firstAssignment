@@ -371,7 +371,7 @@ this is content of file 3
 ##binary
 This is the work I did for exercise 1.5. The user gives an int and gets the binary string representation and also the number of 1s in that string.
 
-I made a recursive function ("findOnes()") that uses find() to find the first 1 in the string that is passed to it. It increments a counter ("onesCount") then it uses substr() to get rid of everything up to and including the 1 that was found. After that it calls itself using the substring.
+I made a recursive function ("findOnes()") that uses find() to find the first 1 in the string that is passed to it. It increments a counter ("onesCount") then it uses substr() to get rid of everything up to and including the 1 that was found. After that it calls itself using the substring instead of the whole binary string.
 
 The running program looks like this:
 ```
