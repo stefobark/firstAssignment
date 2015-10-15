@@ -7,7 +7,8 @@ For this, I figured we could use floats so that we could return more accurate av
 
   * get user input (a switch statement that checks the *first* character in the user input to see what function to call)
   * process it (because I use getline() to get the input as a string and then convert it to a float if possible)
-```
+
+  ```
   // makes sure we can make a float from the user's string
     void procInput(){
 	    if(uNum = stof(uInput)){
@@ -16,8 +17,10 @@ For this, I figured we could use floats so that we could return more accurate av
 	    }
     }
   ```
+  
   * store it in a vector so the size can change
-```
+  
+  ```
   // adds user input to (vector) array of floats
     void storeInput(){
 	    if(uNum){
@@ -27,7 +30,7 @@ For this, I figured we could use floats so that we could return more accurate av
 	  }
 	  getInput();
   }
-```
+  ```
   * and then wait for more user input. 
 
 Users can input 'i' to see the available commands.
@@ -201,12 +204,13 @@ The new IntCell class includes:
   * copy and move assignments
   * a destructor
   * and, storedValue is still a pointer
-  ```
+```
   ...
   private:
     int *storedValue;
   ...
-  ```
+``` 
+
 ###wFigureOneEighteen
 In my quest to understand what was happening, I also wrote a little program that told me how many clicks a copy function took to copy the vectors and it walked me through what was happening throughout the program.
 
@@ -274,4 +278,25 @@ Let's see:
  		 the end 
 ```
 
-##
+##include
+This is the work I did for exercise 1.4 in the book. I wasn't sure that I totally understood the question. But, this is what I did:
+
+Main points:
+ * I used c++ strings.
+ * I wrote a recursive function -- getFromFile() -- that looks for lines in a file that contain "#include" and follows the name to collect the content on the other file.
+ * getFromFile() opens included files until it finds 'end' as the filename to be included.
+ * while it's opening and reading these files, it is also inserting filenames and content into vectors
+ * after the function is done running through the files, it writes the contents of those 2 vectors to a new file and prints everything to the standard output.
+
+Running the program looks like this:
+```
+stefo@ubuntu:~/CppStuff/firstAssignment/include$ ./include
+1
+2
+3
+end
+this is the content of file 1
+another line
+this is content of file 2
+this is content of file 3
+```
