@@ -63,9 +63,75 @@ We can now:
   * do the same things with subtract
   * and we can use this in the simple program above (which is demonstrated by ```simpleProgram+IntCells```).
   * I wrote a little program that prints out these operations so we can see that it is working
+ 
+The program looks like this:
+```
+stefo@ubuntu:~/CppStuff/firstAssignment/TestIntCell$ ./intCells
+I'm trying out passing by constant reference (in all the add and sub functions).
+
+int addTwo( const IntCell & a, const IntCell & b ) const;
+	a.add(a,b)
+
+	This takes any two IntCells, uses 'read()' to get their
+	storedValue and returns the (int) sum of the two stored values
+
+	a = 5
+	b = 5
+	5 + 5 = 10
+
+
+int subTwo( const IntCell & a, const IntCell & b ) const;
+
+	This takes any two IntCells, uses 'read()' to get their
+	storedValue and returns what is left after
+	 subtracting one of the storedValues
+
+
+	a = 5
+	b = 5
+	5 - 5 = 0
+
+int add( const IntCell & a );
+
+	This takes an IntCell, adds it to the storedValue of 
+	this IntCell and returns the (int) sum
+
+
+	a = 5
+	b = 5
+	5 + 5 = 10
+
+int sub( const IntCell & a );
+	a.sub(b) 
+
+	This takes an IntCell, subtracts it from the storedValue 
+	of this IntCell and returns whats left
+
+
+	a = 10
+	b = 5
+	a - b = 5
+
+int add( const std::vector<int> & a );
+
+	This takes an array of ints and adds its sum to this 
+	IntCell's storedValue and returns the new storedValue
+
+
+	1 + 2 + 3 + 4 + 5 + 6 + storedValue: {{5}} = 26
+
+int sub( const std::vector<int> & a );
+	a.sub(nums)
+
+	This takes an array of ints and subtracts its sum from this 
+	IntCell's storedValue and returns whats left
+
+
+	current storedValue: {{26}} - 1 - 2 - 3 - 4 - 5 - 6 = 5
+```
 
 ##IntCellArrayWithPointers
-This is for part 3 and 4. There are three executable example files. 
+This is for part 3 and 4. The three executable example files are outlined below. 
 
 ###iArray.cpp
 ```iArray.cpp``` was my first attempt. I just used the IntCell class we wrote to do addition and subtraction. I tried different ways of passing the vectors to copy functions and looked at the number of clicks it took for them to copy the array.
@@ -145,15 +211,15 @@ Then, I tried to do the same kind of thing with the book's "buggy example" (figu
 
 I found that there was a problem. I made some IntCells, put them in a vector, copied it and wrote to the IntCell in vector[0]:
 ```
-IntCell x {1};
-	 IntCell y {2};
-	 IntCell z {3};
+   IntCell x {1};
+   IntCell y {2};
+   IntCell z {3};
 	 
-    vector<IntCell> a { x,y,z };
-    vector<IntCell> b (a.begin(),a.end());
-    IntCell * c[3];
+   vector<IntCell> a { x,y,z };
+   vector<IntCell> b (a.begin(),a.end());
+   IntCell * c[3];
     
-    a[0].write(9); // this demonstrates the shallow copy problem. changing the values of a changes the values of b
+   a[0].write(9); // this demonstrates the shallow copy problem. changing the values of a changes the values of b
 ```
 It makes sense that the values in the pointer array 'c' would change when a[0] is changed, because its a pointer, but I don't think it makes sense that the vector 'b' changes (this happens because the IntCell data member is a pointer!).
 
@@ -299,4 +365,29 @@ this is the content of file 1
 another line
 this is content of file 2
 this is content of file 3
+```
+##binary
+This is the work I did for exercise 1.5. The user gives an int and gets the binary string representation and also the number of 1s in that string.
+
+I made a recursive function ("findOnes()") that uses find() to find the first 1 in the string that is passed to it. It increments a counter ("onesCount") then it uses substr() to get rid of everything up to and including the 1 that was found. After that it calls itself using the substring.
+
+The running program looks like this:
+```
+stefo@ubuntu:~/CppStuff/firstAssignment/binary$ ./binary
+convert int to binary
+Enter a number: 1
+Binary: 00000000000000000000000000000001
+Number of Ones: 1
+Enter a number: 2
+Binary: 00000000000000000000000000000010
+Number of Ones: 1
+Enter a number: 3
+Binary: 00000000000000000000000000000011
+Number of Ones: 2
+Enter a number: 4
+Binary: 00000000000000000000000000000100
+Number of Ones: 1
+Enter a number: 5
+Binary: 00000000000000000000000000000101
+Number of Ones: 2
 ```
