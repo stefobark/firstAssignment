@@ -1,11 +1,10 @@
 
 /*
 	Steve Barker
-	part 5 of the six simple exercises using figure 1.16
-	the second vector points to int *storedValue in the first vector, 
-	so it changes when the first vector changes (shallow copy).
+	part 5 of the six simple exercises using pointer version of intCell without big 5
+	shallow copy problem
 	
-	Example output:
+	Example output (see how second vector is changed by changes to first vector):
 	
 	stefo@ubuntu:~/CppStuff/firstAssignment/IntCellArrayWithPointers$ ./oneSixteen
 	first vector

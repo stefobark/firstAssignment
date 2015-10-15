@@ -1,6 +1,10 @@
 /*
-	This is my original user input program using the IntCell class instead of floats. 
-	The user enters a string, it is converted to an integer and the integer is written to an IntCell
+	This is my original user input program (simpleProgram+floats) 
+	using the IntCell class instead of floats. 
+	The user enters a string, it is converted to an integer
+	and the integer is written to an IntCell
+	
+	there is a png with example output in this folder
 */
 
 #include <iostream>

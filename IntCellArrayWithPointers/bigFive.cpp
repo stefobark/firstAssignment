@@ -1,13 +1,37 @@
+/**
+	Steve Barker 
+	Six Simple C++ Exercises: part 5
+	
+   Figure 1.18 (4ed of the book): Implements the big five.
+   Now, (unlike with original version) when we copy the first vector 
+   and modify it (or the original), the other will not 
+ 	be changed -- they're independent.
+ 
+ 	example:
+ 	
+ 	stefo@ubuntu:~/CppStuff/firstAssignment/IntCellArrayWithPointers$ ./bigFive
+	first vector
+	9
+	2
+	3
+
+	second vector
+	1
+	2
+	3
+
+	third vector
+	9
+	2
+	3
+
+*/
+
 #include <iostream>
 #include<vector>
 using namespace std;
 
-/**
- * Figure 1.18: Implements the big five.
- * Now, (unlike with figure 1.16) when we copy the first vector 
- * and modify one of it (or the original), the other will not 
- * be changed -- they're independent.
-*/
+
  
 class IntCell
 {
@@ -72,7 +96,7 @@ int f( )
  	 
  	 cout << "\nsecond vector\n";
   	 for(int i = 0; i < 3; i++){
-  	  	 cout << b[i].read( ) << endl; // this will show us that the second vector now also has a 9 at [0]
+  	  	 cout << b[i].read( ) << endl;
   	 }
 
 	 // c[] is an array of pointers to the addresses of the values in a[]

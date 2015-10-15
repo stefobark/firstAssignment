@@ -1,3 +1,12 @@
+/*
+	Steve Barker
+	Added big five to the pointer version of intcell and now
+	the second vector is independent of the first
+	
+	the output of this program shows how long each style of copying takes and
+	I write out what is happening to help me understand.
+*/
+	
 #include "IntCell.h" // this version of IntCell has the destructor, copy and move constructor
 #include <iostream>
 #include <vector>

@@ -1,3 +1,11 @@
+/*
+	Steve Barker
+	Added big five to the pointer version of intcell and now
+	the second vector is independent of the first
+	
+	
+*/
+	
 #include "IntCell.h" // this version of IntCell has the destructor, copy and move constructor
 #include <iostream>
 #include <vector>
@@ -88,7 +96,7 @@ int main(){
 	printA(theIntCells);
 	cout << "\nPerfect.\n";
 	cout << "\nOr what if we pass the vector to the function as a constant reference?\n";
-	cout << "And return a constant reference to it's instance array of IntCells?\n\n";
+	cout << "And return a constant reference?\n\n";
 	cout << "like this: \n\n";
 	cout << "\tvector<IntCell> copyB(const vector<IntCell> & iC){\n";
 	cout << "\t\tconst vector<IntCell> & newA { iC };\n";
@@ -98,7 +106,7 @@ int main(){
 	t= clock();
 	newICell = copyB(theIntCells);
 	t = clock() - t;
-	printf ("\n\nIt took me %d clicks (%f seconds) to do copyB.\n",t,((float)t)/CLOCKS_PER_SEC);
+	printf ("\n\nIt took me %d clicks (%f seconds) to do copyB. Faster.\n",t,((float)t)/CLOCKS_PER_SEC);
 	cout << "\nAnd then, if we clear() this vector, the original should be unchanged.\n\nLet's see:\n\n\t";
 	// clearing this new vector should not destroy the old vector
 	newICell.clear();

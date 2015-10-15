@@ -1,46 +1,52 @@
-
-/*
-	Steve Barker
-	part 5 of the six simple exercises using figure 1.16
-	the second vector points to int *storedValue in the first vector, 
-	so it changes when the first vector changes (shallow copy).
-	
-	Example output:
-	
-	stefo@ubuntu:~/CppStuff/firstAssignment/IntCellArrayWithPointers$ ./oneSixteen
-	first vector
-	9
-	2
-	3
-
-	second vector
-	9
-	2
-	3
-
-	third array
-	9
-	2
-	3
-
-*/
-
 #include <iostream>
-#include<cstdio>
 #include<vector>
 using namespace std;
 
-
+/**
+ * Figure 1.18: Implements the big five.
+ * Now, (unlike with original version) when we copy the first vector 
+ * and modify it (or the original), the other will not 
+ * be changed -- they're independent.
+*/
+ 
 class IntCell
 {
   public:
     explicit IntCell( int initialValue = 0 )
       { storedValue = new int{ initialValue }; }
+    
+    ~IntCell( )
+      { delete storedValue; }
 
+    IntCell( const IntCell & rhs )
+      { storedValue = new int{ *rhs.storedValue }; }
+
+    IntCell( IntCell && rhs ) : storedValue{ rhs.storedValue }
+      { rhs.storedValue = nullptr; }
+    
+    IntCell & operator= ( const IntCell & rhs )
+    {
+        if( this != & rhs )
+            *storedValue = *rhs.storedValue; 
+        return *this;
+    }
+    
+    IntCell & operator= ( IntCell && rhs )
+    {
+        std::swap( storedValue, rhs.storedValue );
+        return *this;
+    }
     int read( ) const
       { return *storedValue; }
     void write( int x )
       { *storedValue = x; }
+     
+    //overloading the << to print IntCells
+	 friend ostream& operator<<(ostream& os, const IntCell& intCell)
+		{
+			 os << intCell.read();
+			 return os;
+		}
     
   private:
     int *storedValue;
@@ -61,12 +67,12 @@ int f( )
     
     cout << "first vector\n";
     for(int i = 0; i < 3; i++){
-    	 cout << a[i].read( ) << endl;
+    	 cout << a[i] << endl;
  	 }
  	 
  	 cout << "\nsecond vector\n";
   	 for(int i = 0; i < 3; i++){
-  	  	 cout << b[i].read( ) << endl; // this will show us that the second vector now also has a 9 at [0]
+  	  	 cout << b[i].read( ) << endl;
   	 }
 
 	 // c[] is an array of pointers to the addresses of the values in a[]
@@ -75,7 +81,7 @@ int f( )
     }
     
     // it makes sense that c[0] would change with a[0]'s change-- its a pointer.
-  	 cout << "\nthird array\n";
+  	 cout << "\nthird vector\n";
   	 for(int i = 0; i < 3; i++){
   	  	 cout << c[i]->read( ) << endl;
   	 }
@@ -91,4 +97,3 @@ int main( )
     
     return 0;
 }
-

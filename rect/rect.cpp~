@@ -1,9 +1,20 @@
+/*
+	Steve Barker.
+	Chapter 1. 
+	Problem 1.15
+	A program with a rectangle class that is comparable to other rectangle objects.
+	We can change its dimensions and use < and > to compare the area of two triangles.
+	There is also a comparePerimeter function.
+	
+	I wasn't able to finish implementing the findMax template function from example 1.25.
+	Will do.
+*/
+
 #include<iostream>
 #include<string.h>
 #include<string>
 #include <vector>
 using namespace std;
-
 
 class Rectangle
 {

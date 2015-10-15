@@ -7,7 +7,7 @@
 	There is also a comparePerimeter function.
 	
 	I wasn't able to finish implementing the findMax template function from example 1.25.
-	Will do.
+	Will do this soon!
 */
 
 #include<iostream>
