@@ -366,8 +366,7 @@ another line
 this is content of file 2
 this is content of file 3
 ```
-<<<<<<< HEAD
-=======
+
 ##binary
 This is the work I did for exercise 1.5. The user gives an int and gets the binary string representation and also the number of 1s in that string.
 
@@ -396,4 +395,96 @@ Enter a number: 5
 Binary: 00000000000000000000000000000101
 Number of Ones: 2
 ```
->>>>>>> c7a8cb141dfe76dfccb6c19a0f131ac1dba47817
+##rect
+This is exercise 1.15. I made a class to keep track of rectangle objects. 
+
+Things we can do with rectangles:
+ * get their x and y dimensions
+ * I overloaded the '<' and '>' operators.. so we can use those to compare rectangles by area
+ * there are also getArea() and getPerimeter() functions. 
+ * we can also writeY() or writeX() to change a rectangle's dimensions.
+ * 
+I started trying to implement the findMax template function on example 1.25 but I didn't have time to unravel what was happening there. Although, I can see how to find the largest rectangle in an array of rectangles in a different way-- but, I want to understand this example.. I'll do that in the future.
+
+The Rectangle class looks like this:
+```
+class Rectangle
+{
+  public:
+    explicit Rectangle( vector<int> x)
+    	: storedValue{ x }{};
+    	
+	 int getLength( ) const
+      { return storedValue[0]; }
+    void changeLength( int x )
+      { storedValue[0] = x; }
+      
+    int getWidth( ) const
+      { return storedValue[1]; }
+    void changeWidth( int y )
+      { storedValue[1] = y; }
+    
+    int getArea () const
+    	{ return getLength() * getWidth(); }
+    	
+    int getPerimeter () const
+    	{ return (getLength() * 2) + (getWidth() * 2); }
+    
+    bool comparePerimeter(Rectangle otherRectangle)
+    	{ return otherRectangle.getPerimeter() > getPerimeter(); }
+        	
+    // overloading < -- will return true if other is less than this
+    bool operator<(Rectangle otherRectangle)
+    	{ return getArea() < otherRectangle.getArea(); }
+    
+    // overloading > -- will return true if other is more than this
+    bool operator>(Rectangle otherRectangle)
+    	{ return getArea() > otherRectangle.getArea(); }
+     
+  private:
+  	 int x, y;
+    vector<int> storedValue {x,y};
+};
+```
+
+
+And for now, the test program looks like this:
+```
+stefo@ubuntu:~/CppStuff/firstAssignment/rect$ ./rect
+
+rectOne X = 5
+rectOne Y = 5
+
+rectTwo X = 5
+rectTwo Y = 5
+
+now changing rectOne size
+
+new rectX = 3
+new rectY = 14
+
+now checking area ( '<' and '>' default to area comparison): 
+
+	rectTwo < rectOne
+
+rectTwo (area: 25) is less (area) than rectOne (area: 42)
+
+and, now we're going to compare perimeters
+
+	rectTwo.comparePerimeter(rectOne)
+
+rectTwo (perimeter: 20) is less (perimeter) than rectOne (perimeter: 34)
+
+Now, to create an array of Rectangles and find the biggest one
+Vector size: 10
+7138
+1155
+3255
+7912
+1029
+1674
+5310
+1638
+1040
+2592
+```
