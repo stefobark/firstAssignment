@@ -1,16 +1,36 @@
 
+/*
+	Steve Barker
+	part 5 of the six simple exercises using figure 1.16
+	the second vector points to int *storedValue in the first vector, 
+	so it changes when the first vector changes (shallow copy).
+	
+	Example output:
+	
+	stefo@ubuntu:~/CppStuff/firstAssignment/IntCellArrayWithPointers$ ./oneSixteen
+	first vector
+	9
+	2
+	3
+
+	second vector
+	9
+	2
+	3
+
+	third array
+	9
+	2
+	3
+
+*/
+
 #include <iostream>
 #include<cstdio>
 #include<vector>
 using namespace std;
 
-/*
-part 4 of the six simple exercises
-*/
 
-/**
- * Figure 1.16
- */
 class IntCell
 {
   public:
