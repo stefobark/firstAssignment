@@ -13,16 +13,23 @@
 	m3 (Zebra) == m4 (Zebra)
 */
 
+	 /************************************************************************
+    * for strings, I still have to fix the case sensitivity problem 			 *
+    * and, the difference between friend and member function is that with a *
+    * member function we just implicitly access *this and with a 'friend' I  *
+    * would pass in two parameters and compare them (like with the << below)*
+    ************************************************************************/
+    
 #include <iostream>
 #include <string>
 #include <ctype.h>
 #include <strings.h>
+
 using namespace std;
 
 /* 
 	Here's the memory cell, now I'm going to overload those comparison operators
 */
-
 
 /**
  * A template class for simulating a memory cell. Generic. Should accept any type.
@@ -37,13 +44,6 @@ class MemoryCell
       { return storedValue; }
     void write( const Object & x )
       { storedValue = x; }
-
-    /************************************************************************
-    * for strings, I still have to fix the case sensitivity problem somehow *
-    * and, the difference between friend and member function is that with a *
-    * member function I just implicitly access *this and with a 'friend' I  *
-    * would pass in two parameters and compare them (like with the << below)*
-    ************************************************************************/
 
     // overloading < -- will return true if x is less than than y
     bool operator<(MemoryCell x)
