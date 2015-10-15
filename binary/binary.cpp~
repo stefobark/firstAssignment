@@ -3,7 +3,7 @@
 #include<string>
 using namespace std;
 
-void findOnes(string uInput,  int & onesCount, int & totalOnes)
+void findOnes(string uInput,  int & onesCount)
 {
 		
 		size_t firstOne = uInput.find("1");
@@ -17,7 +17,7 @@ void findOnes(string uInput,  int & onesCount, int & totalOnes)
 		if(firstOne != string::npos){
 			cutInput = uInput.substr(firstOne+1);
 			onesCount++;
-			findOnes(cutInput,onesCount,totalOnes);
+			findOnes(cutInput,onesCount);
 		} 
 		
 		
@@ -28,7 +28,6 @@ int main()
   	 int i;
   	 string uInput;
   	 int onesCount = 0;
-  	 int totalOnes = 0;
   	
 	 cout << "convert int to binary" << endl;
 	 while(true){
@@ -39,10 +38,9 @@ int main()
 			 uInput = x.to_string();
 			 
 			 cout << "Binary: " << uInput << endl;
-			 findOnes(uInput,onesCount,totalOnes);
-			 cout << "Number of Ones: " << onesCount << endl;
+			 findOnes(uInput,onesCount);
+			 cout << "Number of Ones: " cd ../<< onesCount << endl;
 			 onesCount = 0;
-  	 		 totalOnes = 0;
 			 
 		}
 	
