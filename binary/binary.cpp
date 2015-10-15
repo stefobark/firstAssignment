@@ -40,7 +40,7 @@ int main()
 			 
 			 cout << "Binary: " << uInput << endl;
 			 findOnes(uInput,onesCount,totalOnes);
-			 cout << "Number of Ones: " << onesCount << endl;
+			 cout << "Number of Ones: " cd ../<< onesCount << endl;
 			 onesCount = 0;
   	 		 totalOnes = 0;
 			 

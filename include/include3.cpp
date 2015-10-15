@@ -74,9 +74,11 @@ int main()
 	
 	for(int i = 0; i < files.size(); i++){
 			cout << files[i] << endl;
-			cout << contents[i] << endl;
 			write << files[i] << endl;
-			write << contents[i] << endl;
 		}
-			
-}
+		
+	for(int j = 0; j < files.size(); j++){
+		cout << contents[j] << endl;
+		write << contents[j] << endl;
+	}
+}	
